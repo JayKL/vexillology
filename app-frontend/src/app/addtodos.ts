@@ -5,10 +5,10 @@ import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'todo-list',
-  templateUrl: './todo-list.component.html'
+  templateUrl: './add-todos.html'
 })
 
-export class TodoListComponent implements OnInit {
+export class AddTodos  {
   todos: Todo[];
   newTodo: Todo = new Todo();
   editing: boolean = false;
@@ -18,13 +18,13 @@ export class TodoListComponent implements OnInit {
     private todoService: TodoService,
   ) {}
 
-  ngOnInit(): void {
-    this.getTodos();
-  }
-
-  getTodos(): void {
-    this.todoService.getTodos()
-      .then(todos => this.todos = todos );    
+  createTodo(todoForm: NgForm): void {
+    this.todoService.createTodo(this.newTodo)
+      .then(createTodo => {        
+        todoForm.reset();
+        this.newTodo = new Todo();
+        this.todos.unshift(createTodo)
+      });
   }
 
 }
