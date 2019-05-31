@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TodoService } from './todo.service';
 import { Todo } from './todo';
-
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'todo-list',
-  templateUrl: './list-of-todos.html'
+  templateUrl: './todo-list.component.html'
 })
 
-export class ListOfTodos implements OnInit {
+export class TodoListComponent implements OnInit {
   todos: Todo[];
   newTodo: Todo = new Todo();
   editing: boolean = false;
@@ -25,6 +25,15 @@ export class ListOfTodos implements OnInit {
   getTodos(): void {
     this.todoService.getTodos()
       .then(todos => this.todos = todos );    
+  }
+
+  createTodo(todoForm: NgForm): void {
+    this.todoService.createTodo(this.newTodo)
+      .then(createTodo => {        
+        todoForm.reset();
+        this.newTodo = new Todo();
+        this.todos.unshift(createTodo)
+      });
   }
 
   deleteTodo(id: string): void {
@@ -62,5 +71,4 @@ export class ListOfTodos implements OnInit {
     this.editingTodo = new Todo();
     this.editing = false;
   }
-
 }
