@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
 
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  selector: 'app-product-list',
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class AppComponent  {}
+export class ProductListComponent {
+  share() {
+    window.alert('The product has been shared!');
+  }
+}
 
 
 /*

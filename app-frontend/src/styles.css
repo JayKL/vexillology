@@ -1,160 +1,146 @@
-/* You can add global styles to this file, and also import other style files */
-
-body {
-  font-size: 18px;
-  line-height: 1.58;
-  background: #d53369;
-  background: -webkit-linear-gradient(to left, #cbad6d, #d53369);
-  background: linear-gradient(to left, #cbad6d, #d53369); 
-  color: #333;
-}
-
-h1 {
-  font-size: 36px;
-}
+/* Global Styles */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 * {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #616161;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-i {
-  vertical-align: middle;
-  color: #626262;
-}
-
-input {
-  border: 1px solid #E8E8E8;
-}
-
-.page-title {
-  text-align: center;
-}
-
-.todo-content {
-  max-width: 650px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 60px;
-  background-color: #fff;
-  padding: 15px; 
-  box-shadow: 0 0 4px rgba(0,0,0,.14), 0 4px 8px rgba(0,0,0,.28);
-}
-
-.form-control {
-  font-size: 16px;
-  padding-left: 15px;
-  outline: none;
-  border: 1px solid #E8E8E8;
-}
-
-.form-control:focus {
-  border: 1px solid #626262;
-}
-
-.todo-content .form-control {
-  width: 100%;
-  height: 50px;
-}
-
-.todo-content .todo-create {
-  padding-bottom: 30px;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.todo-content .alert-danger {
-  padding-left: 15px;
-  font-size: 14px;
-  color: red;
-  padding-top: 5px;
-}
-
-.todo-content ul {
-  list-style: none;
+body {
   margin: 0;
-  padding: 0;
-  max-height: 450px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: -15px;
-  margin-right: -15px;
-  overflow-y: scroll;
 }
 
-.todo-content ul li {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #E8E8E8;
+.container {
+  display: flex;
+  flex-direction: row;
 }
 
-.todo-content ul li span {
-  display: inline-block;
-  vertical-align: middle;
+router-outlet + *  {
+  padding: 0 16px;
 }
 
-.todo-content .todo-title {
-  width: calc(100% - 160px);
-  margin-left: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* Text */
+
+h1 {
+  font-size: 32px;
 }
 
-.todo-content .todo-completed {
-  display: inline-block;
-  text-align: center;
-  width:35px;
-  height:35px;
-  cursor: pointer;
-}
-
-.todo-content .todo-completed i {
+h2 {
   font-size: 20px;
 }
 
-.todo-content .todo-actions, .todo-content .edit-actions {
-    float: right;
+h1, h2 {
+  font-weight: lighter;
 }
 
-.todo-content .todo-actions i, .todo-content .edit-actions i {
-    font-size: 17px;
+p {
+  font-size: 14px;
 }
 
-.todo-content .todo-actions a, .todo-content .edit-actions a {
-  display: inline-block;
-  text-align: center;
-  width: 35px;
-  height: 35px;
+/* Hyperlink */
+
+a {
   cursor: pointer;
+  color: #1976d2;
+  text-decoration: none;
 }
 
-.todo-content .todo-actions a:hover, .todo-content .edit-actions a:hover {
-  background-color: #f4f4f4;
+a:hover {
+  opacity: 0.8;
 }
 
-.todo-content .todo-edit input {
-  width: calc(100% - 80px);
-  height: 35px;
-}
-.todo-content .edit-actions {
-  text-align: right;
+/* Input */
+
+input {
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #BDBDBD;
 }
 
-.no-todos {
-  text-align: center;
+label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+  text-transform: uppercase;
 }
 
-.toggle-completed-checkbox:before {
-  content: 'check_box_outline_blank';
+/* Button */
+.button, button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 2px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+  border: none;
 }
 
-li.completed .toggle-completed-checkbox:before {
-  content: 'check_box';
+.button:hover, button:hover {
+  opacity: 0.8;
+  font-weight: normal;
 }
 
-li.completed .todo-title {
-  text-decoration: line-through;
-  color: #757575;
+.button:disabled, button:disabled {
+  opacity: 0.5;
+  cursor: auto;
 }
 
-li.completed i {
-  color: #757575;
+/* Fancy Button */
+
+.fancy-button {
+  background-color: white;
+  color: #1976d2;
 }
+
+.fancy-button i.material-icons {
+  color: #1976d2;
+  padding-right: 4px;
+}
+
+/* Top Bar */
+
+app-top-bar {
+  width: 100%;
+  height: 68px;
+  background-color: #1976d2;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+app-top-bar h1 {
+  color: white;
+  margin: 0;
+}
+
+/* Checkout Cart, Shipping Prices */
+
+.cart-item, .shipping-item {
+  width: 100%;
+  min-width: 400px;
+  max-width: 450px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 32px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  background-color: #EEEEEE;
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
