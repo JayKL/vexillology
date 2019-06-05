@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Todo } from './todo';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
@@ -9,12 +10,13 @@ export class TodoFuncService {
 
 
   constructor(    private http: HttpClient) { }
-  getTodos() {
-    return this.http.get(this.baseUrl + '/api/todos')  .toPromise()
-    .then(response => response.json())
-    .catch(this.handleError);;
-  }
 
+  getTodos():  Promise<Todo[]> {
+    return this.http.get(this.baseUrl + '/api/todos/')
+      .toPromise()
+      .then(response => response as Todo[])
+      .catch(this.handleError);
+  }
   createTodo(formData){
     return this.http.post('/assets/todos/json',formData);
   }

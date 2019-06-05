@@ -1,18 +1,4 @@
 <h2>Todos</h2>
-<h3>ts file todos</h3>
-<div *ngFor="let todos of todos">
- 
-  <h3>
-    <a [title]="todos.title + ' details'">
-      {{ todos.title }}
-    </a>
-  </h3>
- <mat-checkbox [checked]='todos.boolean'>  </mat-checkbox>
-  <p *ngIf="todos.description">
-    Description: {{ todos.description }}
-  </p>
- 
-</div>
 
 <h3>JSON file todos, what comes from backend, cant get tick to work</h3>
 
