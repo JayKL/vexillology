@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
+import { Todo } from '../todo';
 import { TodoFuncService } from '../todo-func.service';
 @Component({
   selector: 'app-create-todo',
@@ -9,14 +9,16 @@ import { TodoFuncService } from '../todo-func.service';
 })
 export class CreateTodoComponent implements OnInit {
   createForm;
-  constructor(    private formBuilder: FormBuilder,
+  todos: Todo[];
+  newTodo: Todo = new Todo();
+  constructor(private formBuilder: FormBuilder,
   private todoFuncService: TodoFuncService,
 ) {
 
    this.createForm = this.formBuilder.group({
       title: '',
       done: '',
-      description: ''
+      description: '',
     });
 
  }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Todo } from '../todo';
 import { TodoFuncService } from '../todo-func.service';
 
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-app-list-todos',
@@ -10,17 +9,27 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app-list-todos.component.css']
 })
 export class AppListTodosComponent implements OnInit {
-  b;
+  listoftodos;
+  todos: Todo[];
+  newTodo: Todo = new Todo();
+
 
 
 
   constructor( 
         private todoFuncService: TodoFuncService) { 
-       this.b = this.todoFuncService.getTodos();
+       this.listoftodos = this.todoFuncService.getTodos();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.getTodos();
   }
+
+  getTodos(): void {
+    this.todoFuncService.getTodos()
+      .then(todos => this.todos = todos );    
+  }
+
   
 
 }
