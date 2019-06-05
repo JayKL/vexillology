@@ -1,13 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
+import { TodoFuncService } from '../todo-func.service';
 @Component({
   selector: 'app-create-todo',
   templateUrl: './create-todo.component.html',
   styleUrls: ['./create-todo.component.css']
 })
 export class CreateTodoComponent implements OnInit {
+  createForm;
+  constructor(    private formBuilder: FormBuilder,
+  private todoFuncService: TodoFuncService,
+) {
 
-  constructor() { }
+   this.createForm = this.formBuilder.group({
+      title: '',
+      done: '',
+      description: ''
+    });
+
+ }
+  onSubmit(customerData) {
+    this.todoFuncService.createTodo(customerData);
+    customerData.done=false;
+    console.warn('Your todo has been submitted', customerData);
+ 
+    this.createForm.reset();
+  }
+
+
 
   ngOnInit() {
   }

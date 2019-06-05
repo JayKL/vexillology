@@ -14,14 +14,11 @@ export class AppListTodosComponent implements OnInit {
   todos=Todos;
   b;
 
-  getTodos() {
-    return this.http.get('/assets/todos.json');
-  }
+
 
   constructor( 
-        private todoFuncService: TodoFuncService,
-       private http: HttpClient) { 
-       this.b = this.getTodos();
+        private todoFuncService: TodoFuncService) { 
+       this.b = this.todoFuncService.getTodos();
   }
 
   ngOnInit() {
