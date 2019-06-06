@@ -10,7 +10,6 @@ import { TodoFuncService } from '../todo-func.service';
 export class CreateTodoComponent implements OnInit {
   createForm;
   todos: Todo[];
-  newTodo: Todo = new Todo();
   constructor(private formBuilder: FormBuilder,
   private todoFuncService: TodoFuncService,
 ) {
@@ -18,7 +17,7 @@ export class CreateTodoComponent implements OnInit {
    this.createForm = this.formBuilder.group({
       title: '',
       done: '',
-      description: '',
+      description: ''
     });
 
  }
@@ -26,7 +25,6 @@ export class CreateTodoComponent implements OnInit {
     this.todoFuncService.createTodo(customerData);
     customerData.done=false;
     console.warn('Your todo has been submitted', customerData);
- 
     this.createForm.reset();
   }
 

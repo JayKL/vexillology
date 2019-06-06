@@ -1,17 +1,5 @@
-[
-  {
-    "title": "graduate QA",
-    "done": true,
-    "description": "need a job for money"
-  },
-  {
-    "title": "get paid",
-    "done": false,
-    "description": "need money"
-  },
-  {
-    "title": "get sleep",
-    "done": false,
-    "description": "need sleep"
-  }
-]
+{
+  "title": "graduate QA",
+  "done": true,
+  "description": "need a job for money"
+}

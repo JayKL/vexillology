@@ -11,7 +11,6 @@ import { TodoFuncService } from '../todo-func.service';
 export class AppListTodosComponent implements OnInit {
   listoftodos;
   todos: Todo[];
-  newTodo: Todo = new Todo();
 
 
 
@@ -22,13 +21,8 @@ export class AppListTodosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTodos();
   }
 
-  getTodos(): void {
-    this.todoFuncService.getTodos()
-      .then(todos => this.todos = todos );    
-  }
 
   
 
