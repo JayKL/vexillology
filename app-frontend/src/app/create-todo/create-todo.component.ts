@@ -22,7 +22,8 @@ export class CreateTodoComponent implements OnInit {
 
  }
   onSubmit(customerData) {
-    this.todoFuncService.createTodo(customerData);
+    this.todoFuncService.createTodo(customerData)
+      .subscribe(customerData => this.todos.push(customerData));
     customerData.done=false;
     console.warn('Your todo has been submitted', customerData);
     this.createForm.reset();

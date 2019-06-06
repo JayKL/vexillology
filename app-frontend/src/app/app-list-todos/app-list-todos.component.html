@@ -1,15 +1,14 @@
 <h2>Todos</h2>
 
-<h3>JSON file todos, what comes from backend, cant get tick to work</h3>
+<h3>JSON file todos, what comes from backend</h3>
 
 <div *ngFor="let currenttodo of listoftodos | async">
-    <h3>
+  <h3>
     <a [title]="currenttodo.title + ' details'">
       {{ currenttodo.title }}
     </a>
-  </h3> {{ currenttodo.description }} 
- <mat-checkbox [checked]='currenttodo.done'>  </mat-checkbox>
-  <p *ngIf="currenttodo.description">
-    Description: {{ currenttodo.description }}
-  </p>
+  </h3> 
+  
+  <mat-checkbox [checked]='currenttodo.completed'></mat-checkbox>
+  {{ currenttodo.description }} 
 </div>

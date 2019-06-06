@@ -11,20 +11,14 @@ export class TodoFuncService {
 
   constructor(private http: HttpClient) {     }
 
+  //@ts-ignore
   getTodos():  Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.baseUrl + '/api/todos/').pipe(
-      map(response => response as Todo[])
-      );
+    return this.http.get<Todo[]>(this.baseUrl + '/api/todos/')
+      .pipe(map((response:any) => response as Todo[]));
   }
 
   createTodo(todoData: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.baseUrl + '/api/todos/', todoData)
-    .pipe(
-      map(response => response as Todo)
-
-      );
+      .pipe(map((response:any)  => response as Todo));
   }
-
-
-
 }
