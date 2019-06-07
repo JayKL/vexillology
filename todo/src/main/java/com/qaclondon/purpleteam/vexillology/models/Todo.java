@@ -27,6 +27,8 @@ public class Todo {
 	
 	private Date createdAt = new Date();
 	
+	private String description;
+	
 	public Todo() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -66,6 +68,14 @@ public class Todo {
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override

@@ -1,0 +1,14 @@
+<h2>Todos</h2>
+
+<h3>JSON file todos, what comes from backend</h3>
+
+<div *ngFor="let currenttodo of listoftodos | async">
+  <h3>
+    <a [title]="currenttodo.title + ' details'">
+      {{ currenttodo.title }}
+    </a>
+  </h3> 
+  
+  <mat-checkbox [checked]='currenttodo.completed'></mat-checkbox>
+  {{ currenttodo.description }} 
+</div>
